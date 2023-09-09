@@ -57,7 +57,9 @@ async function getDocIconDom(block_id) {
 
     let icon_dom = "";
     //使用了自定义的 svg 图标 vs 使用 unicode 编码的 emoji
-    if (icon_code.toLowerCase().endsWith(".svg")) {
+    if (icon_code.toLowerCase().endsWith(".svg")
+        || icon_code.toLowerCase().endsWith(".png")
+        || icon_code.toLowerCase().endsWith(".jpg")) {
         icon_dom = `<img alt="${icon_code}" class="emoji ${ICON_CLASS}" src="/emojis/${icon_code}" title="${icon_code}">`
     } else {
         icon_dom = String.fromCodePoint(parseInt(icon_code, 16))
